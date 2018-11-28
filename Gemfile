@@ -36,6 +36,9 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'bootstrap-sass'
+gem 'slim-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -53,6 +56,8 @@ group :development do
 end
 
 group :test do
+  gem 'factory_girl_rails'
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 3.1.0'
 end

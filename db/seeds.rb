@@ -8,4 +8,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Rate.create!(from: 'USD', to: 'RUB', value: 67.288983)
+Rate.create(from: 'USD', to: 'RUB', value: 67.288983)
