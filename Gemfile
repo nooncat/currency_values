@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bootstrap-sass'
+
+gem 'sidekiq'
+
 gem 'slim-rails'
 
 group :development, :test do
@@ -59,6 +62,7 @@ group :test do
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 3.1.0'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

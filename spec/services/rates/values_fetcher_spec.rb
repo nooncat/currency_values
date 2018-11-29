@@ -7,9 +7,22 @@ describe ::Rates::ValuesFetcher do
 
   describe '.call' do
     it 'should return hash with rates values' do
-      allow(Net::HTTP)
-        .to receive(:get)
-        .and_return({ first_rate.to_param => 33.333333, second_rate.to_param => 44.444444 }.to_json)
+      stub_request(:get, object.send(:url))
+        .with(
+          headers: {
+            'Accept': '*/*',
+            'Accept-Encoding': 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+            'User-Agent': 'Ruby'
+          }
+        )
+        .to_return(
+          status: 200,
+          body: {
+            first_rate.to_param => 33.333333,
+            second_rate.to_param => 44.444444
+          }.to_json,
+          headers: {}
+        )
       expect(object.call).to eql 'AAA_BBB' => 33.333333, 'XXX_YYY' => 44.444444
     end
   end
