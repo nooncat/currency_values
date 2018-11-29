@@ -9,3 +9,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Rate.create(from: 'USD', to: 'RUB', value: 67.288983)
+Rate.create(from: 'EUR', to: 'RUB', value: 75.959347)
