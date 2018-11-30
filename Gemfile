@@ -38,6 +38,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bootstrap-sass'
 
+gem 'react-rails'
+
 gem 'sidekiq'
 
 gem 'slim-rails'

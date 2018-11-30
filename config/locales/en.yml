@@ -30,6 +30,4 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  rates:
-    index:
-      header: 'Currency Values'
+  hello: "Hello world"
