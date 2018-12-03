@@ -60,9 +60,14 @@ group :development do
 end
 
 group :test do
+  gem 'action-cable-testing'
+  gem 'capybara'
   gem 'factory_girl_rails'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
+  gem 'poltergeist'
   gem 'rspec-rails'
+  gem 'selenium-webdriver', '~> 2.53.4'
   gem 'shoulda-matchers', '~> 3.1.0'
   gem 'webmock'
 end

@@ -8,6 +8,7 @@ class Rate < ActiveRecord::Base
             numericality: { greater_than: 0, less_than: 1_000_000_000 }
 
   before_save :upcase_from_and_to
+  after_commit :broadcast_changes, on: :update, if: -> { previous_changes[:value].present? }
 
   def self.find(param)
     if param.is_a?(Integer)
@@ -27,5 +28,9 @@ class Rate < ActiveRecord::Base
   def upcase_from_and_to
     from.upcase!
     to.upcase!
+  end
+
+  def broadcast_changes
+    RateChannel.broadcast_to(self, value: value)
   end
 end

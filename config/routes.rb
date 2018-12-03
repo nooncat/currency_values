@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'rates#index'
 
+  mount ActionCable.server => '/cable'
+
   namespace :admin do
     mount Sidekiq::Web => '/sidekiq'
   end

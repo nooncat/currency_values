@@ -46,13 +46,33 @@ describe ::Rate do
     end
   end
 
+  describe '.broadcast_changes' do
+    let(:rate) { create :rate }
+    let(:new_value) { 33.333333 }
+
+    it 'translate new value to RateChannel' do
+      expect(RateChannel).to receive(:broadcast_to).with(rate, value: new_value).once
+      rate.update(value: new_value)
+    end
+  end
+
   describe 'callbacks' do
     describe 'before_save' do
       let(:rate) { build(:rate) }
 
-      it 'calls Rate.upcase_from_and_to' do
+      it 'calls .upcase_from_and_to' do
         expect(rate).to receive(:upcase_from_and_to).once
         rate.save
+      end
+    end
+
+    describe 'after_commit' do
+      let(:rate) { create(:rate) }
+      let(:new_value) { 33.333333 }
+
+      it 'calls .broadcast_changes' do
+        expect(rate).to receive(:broadcast_changes).once
+        rate.update(value: new_value)
       end
     end
   end

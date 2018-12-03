@@ -1,5 +1,4 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-require 'webmock/rspec'
 require 'spec_helper'
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -7,6 +6,23 @@ require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+require 'action_cable/testing/rspec'
+require 'capybara/rspec'
+require 'webmock/rspec'
+require 'capybara/poltergeist'
+
+Capybara.register_driver :poltergeist do |app|
+  options = {
+    extensions: [],
+    window_size: [1280, 1720],
+    timeout: 180,
+    phantomjs: Phantomjs.path
+  }
+  Capybara::Poltergeist::Driver.new(app, options)
+end
+
+Capybara.javascript_driver = :poltergeist
+Capybara.default_max_wait_time = 30
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

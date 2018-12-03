@@ -9,6 +9,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    action-cable-testing (0.3.3)
+      actioncable (~> 5.0)
     actioncable (5.2.1.1)
       actionpack (= 5.2.1.1)
       nio4r (~> 2.0)
@@ -69,6 +71,17 @@ GEM
       sass (>= 3.2.19)
     builder (3.2.3)
     byebug (10.0.2)
+    capybara (3.11.1)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.2)
+      xpath (~> 3.2)
+    childprocess (0.9.0)
+      ffi (~> 1.0, >= 1.0.11)
+    cliver (0.3.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -124,6 +137,11 @@ GEM
     parser (2.5.1.0)
       ast (~> 2.4.0)
     pg (0.18.1)
+    phantomjs (2.1.1.0)
+    poltergeist (1.18.1)
+      capybara (>= 2.1, < 4)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     powerpack (0.1.2)
     public_suffix (3.0.3)
     puma (3.12.0)
@@ -168,6 +186,7 @@ GEM
       railties (>= 3.2)
       tilt
     redis (4.0.3)
+    regexp_parser (1.3.0)
     rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -195,6 +214,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
+    rubyzip (1.2.2)
     safe_yaml (1.0.4)
     sass (3.7.2)
       sass-listen (~> 4.0.0)
@@ -207,6 +227,10 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selenium-webdriver (2.53.4)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
     sidekiq (5.2.3)
@@ -253,30 +277,38 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
+    websocket (1.2.8)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  action-cable-testing
   awesome_print
   bootsnap (>= 1.1.0)
   bootstrap-sass
   byebug
+  capybara
   coffee-rails (~> 4.2)
   factory_girl_rails
   faker!
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg
+  phantomjs
+  poltergeist
   puma (~> 3.11)
   rails (~> 5.2.1, >= 5.2.1.1)
   react-rails
   rspec-rails
   rubocop (= 0.58.1)
   sass-rails (~> 5.0)
+  selenium-webdriver (~> 2.53.4)
   shoulda-matchers (~> 3.1.0)
   sidekiq
   slim-rails
