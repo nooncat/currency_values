@@ -48,6 +48,8 @@ gem 'slim-rails'
 gem 'jc-validates_timeliness'
 gem 'js-routes'
 
+gem 'whenever', require: false
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-momentjs'
   gem 'rails-assets-bs-datetimepicker'
