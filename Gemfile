@@ -50,9 +50,11 @@ gem 'js-routes'
 
 gem 'whenever', require: false
 
+gem 'foreman'
+
 source 'https://rails-assets.org' do
-  gem 'rails-assets-momentjs'
   gem 'rails-assets-bs-datetimepicker'
+  gem 'rails-assets-momentjs'
   gem 'rails-assets-polyfills'
 end
 
