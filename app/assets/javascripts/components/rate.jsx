@@ -10,21 +10,25 @@ class Rate extends React.Component {
   }
 
   componentDidMount() {
-    this.sub = App.cable.subscriptions.create(
+    this.subscription = App.cable.subscriptions.create(
       {channel: 'RateChannel', rate_id: this.props.rate.id},
       {received: this.handleReceivedData}
     );
   }
 
-  render() {
-    return <li className='list-group-item'>
-             {this.props.rate.from}/{this.props.rate.to}: {this.state.value}
-           </li>;
+  componentWillUnmount() {
+    this.subscription.unsubscribe();
   }
 
   handleReceivedData(data) {
     if (data.value !== this.state.value) {
       this.setState({value: data.value});
     }
+  }
+
+  render() {
+    return <li className='list-group-item'>
+             {this.props.rate.from}/{this.props.rate.to}: {this.state.value}
+           </li>;
   }
 }

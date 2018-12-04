@@ -1,4 +1,4 @@
-class Rates extends React.Component {
+class RatesForms extends React.Component {
   constructor(props) {
     super(props);
 
@@ -8,17 +8,17 @@ class Rates extends React.Component {
   }
 
   render() {
-    return <div className='records'>
-             <h1>Курсы валют</h1>
+    return <div className='rates-forms'>
+             <h1>Редактирование курса</h1>
              <ul className='list-group'>
                {this.props.rates.map(rate => (
-                 <Rate key={rate.id} rate={rate} />
+                 <RateForm key={rate.id} rate={rate} />
                ))}
              </ul>
            </div>;
   }
 }
 
-Rates.defaultProps = {
+RatesForms.defaultProps = {
   rates: []
 };

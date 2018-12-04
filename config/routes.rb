@@ -7,5 +7,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     mount Sidekiq::Web => '/sidekiq'
+
+    root 'rates#edit_index'
+
+    resources :rates, only: [:update]
   end
 end

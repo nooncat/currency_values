@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bootstrap-sass'
+gem 'jquery-rails'
 
 gem 'react-rails'
 
@@ -44,16 +45,23 @@ gem 'sidekiq'
 
 gem 'slim-rails'
 
-gem 'rails-assets-polyfills', source: 'https://rails-assets.org'
+gem 'jc-validates_timeliness'
+gem 'js-routes'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-momentjs'
+  gem 'rails-assets-bs-datetimepicker'
+  gem 'rails-assets-polyfills'
+end
 
 group :development, :test do
+  gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop', '0.58.1', require: false
 end
 
 group :development do
-  gem 'awesome_print'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'

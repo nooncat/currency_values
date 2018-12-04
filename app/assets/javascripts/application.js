@@ -11,10 +11,14 @@
 // about supported directives.
 //
 //= require polyfills
+//= require momentjs
 //= require rails-ujs
+//= require jquery
+//= require bs-datetimepicker
 //= require activestorage
 //= require turbolinks
 //= require react
 //= require react_ujs
 //= require components
+//= require js-routes
 //= require_tree .
