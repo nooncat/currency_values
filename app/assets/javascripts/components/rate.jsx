@@ -10,11 +10,10 @@ class Rate extends React.Component {
   }
 
   componentDidMount() {
-    const cable = ActionCable.createConsumer('ws://localhost:3000/cable');
-
-    this.sub = cable.subscriptions.create({channel: 'RateChannel', rate_id: this.props.rate.id}, {
-      received: this.handleReceivedData
-    });
+    this.sub = App.cable.subscriptions.create(
+      {channel: 'RateChannel', rate_id: this.props.rate.id},
+      {received: this.handleReceivedData}
+    );
   }
 
   render() {

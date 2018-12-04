@@ -8,6 +8,7 @@ GIT
 
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     action-cable-testing (0.3.3)
       actioncable (~> 5.0)
@@ -163,6 +164,7 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.1.1)
       sprockets-rails (>= 2.0.0)
+    rails-assets-polyfills (0.1.42)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -304,6 +306,7 @@ DEPENDENCIES
   poltergeist
   puma (~> 3.11)
   rails (~> 5.2.1, >= 5.2.1.1)
+  rails-assets-polyfills!
   react-rails
   rspec-rails
   rubocop (= 0.58.1)
